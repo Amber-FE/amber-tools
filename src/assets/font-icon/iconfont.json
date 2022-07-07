@@ -1,0 +1,44 @@
+{
+  "id": "3504669",
+  "name": "AmberTools",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "966366",
+      "name": "向右展开",
+      "font_class": "xiangyouzhankai",
+      "unicode": "e8a7",
+      "unicode_decimal": 59559
+    },
+    {
+      "icon_id": "966367",
+      "name": "向左收起",
+      "font_class": "xiangzuoshouqi",
+      "unicode": "e8a8",
+      "unicode_decimal": 59560
+    },
+    {
+      "icon_id": "1174317",
+      "name": "minus",
+      "font_class": "minus",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "4766952",
+      "name": "block",
+      "font_class": "block",
+      "unicode": "e7df",
+      "unicode_decimal": 59359
+    },
+    {
+      "icon_id": "7141741",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    }
+  ]
+}
