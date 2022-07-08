@@ -49,17 +49,17 @@ export default ({ command }) => {
         symbolId: 'icon-[dir]-[name]'
       }),
       //https://github.com/anncwb/vite-plugin-mock/blob/HEAD/README.zh_CN.md
-      viteMockServe({
-        supportTs: true,
-        mockPath: 'mock',
-        localEnabled: command === 'serve',
-        prodEnabled: prodMock,
-        injectCode: `
-          import { setupProdMockServer } from './mockProdServer';
-          setupProdMockServer();
-        `,
-        logger: true
-      })
+      // viteMockServe({
+      //   supportTs: true,
+      //   mockPath: 'mock',
+      //   localEnabled: command === 'serve',
+      //   prodEnabled: prodMock,
+      //   injectCode: `
+      //     import { setupProdMockServer } from './mockProdServer';
+      //     setupProdMockServer();
+      //   `,
+      //   logger: true
+      // })
     ],
     build: {
       minify: 'terser',

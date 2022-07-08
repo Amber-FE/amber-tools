@@ -32,7 +32,7 @@ const cachedViews = computed(() => {
 
 <style scoped lang="scss">
 .app-main {
-  padding: 25px 10px 10px;
+  padding: 25px 15px 10px;
   /*50 = navbar  */
   // height: calc(100vh - #{$navBarHeight});
   height: 100vh;
