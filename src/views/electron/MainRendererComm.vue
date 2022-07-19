@@ -14,7 +14,10 @@
 //electron13 以后引入remote的方式
 //https://blog.csdn.net/qq_51634332/article/details/120575284
 const { BrowserWindow } = require('@electron/remote')
+const path = require('path')
 const { ipcRenderer } = require('electron')
+
+// const __dirname = path.dirname(import.meta.url)
 //第一种父子通信方式
 const sendMsgToMain = () => {
   ipcRenderer.send('send1', { msg: 'send1' })
@@ -38,15 +41,20 @@ ipcRenderer.on('toRenderer1', (event, data) => {
 
 const newWin = () => {
   const mainWindow = new BrowserWindow({
-    width: 1240,
+    width: 1300,
     height: 800,
+    frame: false,
     webPreferences: {
       nodeIntegration: true, //渲染进程中使用nodejs
       contextIsolation: false,
-      enableRemoteModule: true //渲染线程中使用remote模块
+      enableRemoteModule: true, //渲染线程中使用remote模块
+      preload: path.resolve(__dirname, '/preload.js')
     }
   })
-  mainWindow.loadURL('https://juejin.cn/post/7025549160002617375/')
+  mainWindow.loadURL('http://116.205.179.210:3000')
+  mainWindow.webContents.send('distributeIds', {
+    id: mainWindow.id
+  })
 }
 //import { onMounted, getCurrentInstance, watch, ref, toRefs, reactive, computed } from 'vue'
 //获取store和router

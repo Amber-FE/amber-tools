@@ -1,5 +1,7 @@
-const { BrowserWindow, ipcMain } = require('electron')
+const { BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('path')
+
+let rendererId = new Map()
 
 //first way
 ipcMain.on('send1', (event, args) => {
@@ -17,6 +19,7 @@ let renderer1Id = null
 ipcMain.on('renderer2', () => {
   //在打开renderer2窗口前保存renderer1的id
   renderer1Id = BrowserWindow.getFocusedWindow().id
+  console.log('wa', renderer1Id)
   const newsWindow = new BrowserWindow({
     width: 800,
     height: 500,
@@ -26,6 +29,7 @@ ipcMain.on('renderer2', () => {
       enableRemoteModule: true //启用Remote模块
     }
   })
+  console.log('anew', newsWindow.id)
   newsWindow.loadFile(path.join(__dirname, '../html/renderer2.html'))
   //open devTools
   newsWindow.webContents.openDevTools({ mode: 'bottom' })
