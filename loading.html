@@ -1,10 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>AmberTools</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			height: 100vh;
+			/* 弹性布局-居中元素 */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #252526;
+		}
+		.load-box{
+            width:96px;
+            height:68px;
+			position: relative;
+        }
+		.load-box div{
+			background: #0098ff;
+		}
+		.load-box div:nth-child(1){
+			width:20px;
+			height:20px;
+			position:absolute;
+			bottom:20px;
+			left:20px;
+			border-radius: 50%;
+			transform-origin: center bottom;
+			/* 设置小球动画 */
+			animation: ball-jump 0.6s ease-in-out infinite;
+		}
+		/* 给非第一div（楼梯）设置样式和动画 */
+		.load-box div:not(:nth-child(1)){
+			width:32px;
+			height: 5px;
+			border-radius: 5px;
+			position:absolute;
+			top:0;
+			right:0;
+			transform:translateX(60%);
+			animation: ball-steps 1.8s linear infinite;
+		}
+		/* 给每个楼梯设置不同的延迟 */
+		.load-box div:nth-child(2){
+			animation-delay: 0s
+		}
+		.load-box div:nth-child(3){
+			animation-delay: -0.6s
+		}
+		.load-box div:nth-child(4){
+			animation-delay: -1.2s
+		}
+		/* 小球弹跳动画 */
+		@keyframes ball-jump {
+			0%{
+				transform: scale(1,0.7);
+			}
+			20%{
+				transform: scale(0.7,1.2);
+			}
+			40%{
+				transform: scale(1,1);
+			}
+			50%{
+				bottom:150%;
+				transform: scale(1,1);
+			}
+			80%,90%{
+				transform: scale(0.7,1.2);
+			}
+			100%{
+				transform: scale(1,0.7);
+			}
+		}
+		/* 楼梯下滑动画 */
+		@keyframes ball-steps {
+			0%{
+				top:0;
+				right:0;
+				opacity: 0;
+			}
+			50%{
+				opacity: 1;
+			}
+			100%{
+				top:100%;
+				right:100%;
+				opacity: 0;
+			}
+		}
+	</style>
 </head>
 <body>
-  服务启动中......
+	<div class="load-box">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
 </body>
 </html>

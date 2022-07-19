@@ -56,5 +56,14 @@ export default {
       description: '一个轻量级电商vue2组件库',
       value: 'https://github.com/Amber-FE/amber-ui.git'
     }
+  ],
+  project: [
+    {
+      name: 'DBI大数据智能决策',
+      description: 'DBI 智能决策系统，预测、趋势、报表可视化平台',
+      icon: 'http://dbi.onekdrug.com/favicon.ico',
+      prodUrl: 'http://dbi.onekdrug.com/',
+      devUrl: 'http://116.205.179.210:8019/'
+    }
   ]
 }

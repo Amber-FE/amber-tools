@@ -1,6 +1,7 @@
 <template>
   <div :class="classObj" class="layout-wrapper">
-    <div className="layout-wrapper__drag"></div>
+    <FlexTools />
+    <!-- <div className="layout-wrapper__drag"></div>
     <div className="layout-wrapper__controls">
       <span
         className="layout-wrapper__controls-item"
@@ -32,7 +33,7 @@
       >
         <i class="iconfont icon-close"></i>
       </span>
-    </div>
+    </div> -->
     <!--left side-->
     <Sidebar class="sidebar-container" v-if="settings.showLeftMenu" />
     <!--right container-->
@@ -52,13 +53,13 @@ export default {
 </script>
 
 <script setup>
-import { Sidebar, Navbar, AppMain, TagsView } from './components'
+import { Sidebar, Navbar, AppMain, TagsView, FlexTools } from './components'
 import { getCurrentInstance, computed, onBeforeMount } from 'vue'
 import ResizeHook from './hook/ResizeHandler'
 import settings from '@/settings'
 import store from '@/store'
 let { proxy } = getCurrentInstance()
-const { ipcRenderer } = require('electron')
+// const { ipcRenderer } = require('electron')
 let opened = computed(() => {
   return proxy.$store.state.app.sidebar.opened
 })
@@ -78,15 +79,6 @@ onBeforeMount(() => {
 <style lang="scss" scoped>
 .layout-wrapper {
   overflow: hidden;
-  &__drag {
-    position: absolute;
-    width: calc(100% - 100px);
-    height: 25px;
-    -webkit-app-region: drag;
-    .overlay {
-      pointer-events: none;
-    }
-  }
   &__controls {
     position: absolute;
     right: 0;
@@ -110,7 +102,7 @@ onBeforeMount(() => {
       &.red:hover {
         background: none;
         background-color: red;
-    }
+      }
     }
   }
 }
